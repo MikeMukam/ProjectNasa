@@ -3,6 +3,7 @@ package com.farmersInsurance.utilities;
 import com.farmersInsurance.utilities.apodPicture.ApodPictureQueryParams;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class Utils {
@@ -16,12 +17,10 @@ public class Utils {
     }
 
     public static String apodDataFormat(final LocalDate date) {
-        final String apodDateFormatPattern = "MMM dd, yyyy";
-        return date.format(DateTimeFormatter.ofPattern(apodDateFormatPattern));
+        return date.format(DateTimeFormatter.ofPattern("MMM dd, yyyy"));
     }
 
-    public static String apodDataFormat(final String date) {
-        final String apodDateFormatPattern = "MMM dd, yyyy";
-        return LocalDate.parse(date).format(DateTimeFormatter.ofPattern(apodDateFormatPattern));
+    public static LocalDate getET_zoneNow(){
+        return LocalDate.now(ZoneId.of( "America/New_York" ));
     }
 }
